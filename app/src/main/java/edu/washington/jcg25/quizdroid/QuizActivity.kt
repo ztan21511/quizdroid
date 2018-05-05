@@ -24,14 +24,7 @@ class QuizActivity : AppCompatActivity(),
         val category : String = bundle.getString("category")
 
 
-        data = when(category){
-            "Math" -> HardCodedTopicRepository().getTopics()[0]
-            "Physics" -> HardCodedTopicRepository().getTopics()[1]
-            "Marvel Super Heroes" -> HardCodedTopicRepository().getTopics()[2]
-            else -> {
-                HardCodedTopicRepository().getTopics()[2]
-            }
-        }
+        data = DynamicTopicRepository().getTopicByName(category)
 
         var fragment: Fragment? = null
         if(current == 0){

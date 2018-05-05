@@ -3,8 +3,11 @@ package edu.washington.jcg25.quizdroid
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.widget.ArrayAdapter
 import android.widget.ListView
+import android.view.MenuItem
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -12,7 +15,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val topicData = HardCodedTopicRepository().getTopics()
+        val topicData = DynamicTopicRepository().getTopics()
 
         val categories = listOf(topicData[0].title, topicData[1].title, topicData[2].title)
         val listView = findViewById<ListView>(R.id.ListViewTopics) as ListView
@@ -28,6 +31,18 @@ class MainActivity : AppCompatActivity() {
 
             startActivity(intent)
         })
-
     }
+
+    override fun onCreateOptionsMenu(menu: Menu): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.preferences, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        val intent = Intent(this, PreferencesActivity::class.java)
+        startActivity(intent)
+        return true
+    }
+
 }

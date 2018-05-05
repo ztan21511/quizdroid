@@ -25,7 +25,7 @@ class TopicOverviewFragment : Fragment() {
         val topicHeading: TextView = view.findViewById(R.id.textViewTopicName)
         topicHeading.text = data!!.title
         val topicDescription: TextView = view.findViewById(R.id.textViewTopicDesc)
-        topicDescription.text = data!!.longDescription
+        topicDescription.text = data!!.description
         val numQuestions: TextView = view.findViewById(R.id.textViewTopicNumQuestions)
         numQuestions.text = data!!.questions.size.toString() + " Questions"
         val beginBtn: Button = view.findViewById(R.id.buttonTopicStart)

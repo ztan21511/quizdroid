@@ -8,7 +8,7 @@ class HardCodedTopicRepository : TopicRepository {
         return topics
     }
 
-    init {
+    /*init {
         var math : Topic = Topic(
                 "Math",
                 "Math-y questions",
@@ -84,5 +84,5 @@ class HardCodedTopicRepository : TopicRepository {
         topics.add(math)
         topics.add(physics)
         topics.add(marvel)
-    }
+    }*/
 }
